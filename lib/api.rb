@@ -1,7 +1,14 @@
-class CatFactAPI
-    BASE_URL = "https://randomfox.ca/"
+require 'pry'
+class API
+
+  URL = "https://api.sunrise-sunset.org/json."
+
   
-    def get_cat_facts
-      cat_facts = HTTParty.get(BASE_URL + "/images")
-    end
+  HTTParty.get "https://api.pexels.com/v1/curated?per_page=1",{headers:{"Authorization":"Bearer KEY"}}
+
+
+  
+
+  
 end
+
