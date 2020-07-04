@@ -1,14 +1,18 @@
-require 'pry'
+
 class API
-
-  URL = "https://api.sunrise-sunset.org/json."
-
   
-  HTTParty.get "https://api.pexels.com/v1/curated?per_page=1",{headers:{"Authorization":"Bearer KEY"}}
-
-
+  def get_api
+ 
+  response = HTTParty.get "https://api.pexels.com/v1/curated?per_page=50",{headers:{"Authorization":"Bearer #{ENV['API_KEY']}"}}
   
+    response["photos"].each do |photographer_hash|
+      
+       Photographer.new(photographer_hash["id"],photographer_hash["photographer"],photographer_hash["photographer_url"],photographer_hash["src"]["original"])
+    end
 
-  
+  end 
+
+
+
 end
 
