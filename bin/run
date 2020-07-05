@@ -3,5 +3,5 @@
 require_relative '../config/environment.rb'
 
 API.new.get_api
-CLI.new.welcome
-CLI.new.user_interface
+
+#App::CLI.start
