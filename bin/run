@@ -2,9 +2,10 @@
 
 require_relative '../config/environment.rb'
 
-API.new.get_api
+beginning_of_game = CLI.new
+beginning_of_game.start
 
-#CLI.new.user_interface 
+
 
 
 
