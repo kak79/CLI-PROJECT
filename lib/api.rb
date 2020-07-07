@@ -8,7 +8,7 @@ class API
     response["photos"].each do |photographer_hash|
       
       Photographer.new(photographer_hash["id"],photographer_hash["photographer"],photographer_hash["photographer_url"],photographer_hash["src"]["original"])
-       
+       binding.pry
     end
 
   end 

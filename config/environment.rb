@@ -2,7 +2,7 @@ require 'dotenv/load'
 require 'httparty'
 require 'json'
 require 'pry'
-require 'tty'
+
 
 require_relative '../lib/cli.rb'
 require_relative '../lib/api.rb'
