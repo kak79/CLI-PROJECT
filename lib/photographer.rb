@@ -1,12 +1,8 @@
 class Photographer
     
-    attr_accessor :id, :photographer, :photographer_url, :original
+    attr_accessor :id, :photographer, :photographer_url, :original, :input
     
     @@all = []
-    @ids = []
-    @photographers = []
-    @photographer_urls = []
-    @orig_photos = []
 
     def initialize(id,photographer,photographer_url,original)
         @id = id
@@ -15,34 +11,38 @@ class Photographer
         @original = original
         @@all << self
     end
-    
+
     def self.all
         @@all
     end
 
-    def self.make_id_array
-        @ids.each do |id|
-            @ids << id
+    def self.id_array
+        @@all.map.with_index(1) do |photographer,i|
+            photographer.id
+            puts "#{i}. #{photographer.id}"
+            break if i > 49 
         end
-        @ids
     end
 
-    def self.search_by_id
-        @@all.select do |hash| 
-            hash["id"] == input
-                   
+    def self.search_id_array(input)
+        @@all.select do |array| 
+            array.id  ==  input 
+        end
+    end    
+  
+    def self.photographer_array
+        @@all.map.with_index(1) do |id,j|
+            id.photographer
+            puts "#{j}. #{id.photographer}"
+            break if j > 49 
         end
     end
-  
-    def self.make_photographer_array
-        @photographers.each do |photographer|
-            @photographers << photographer
+
+    def self.search_photographer_array(input)
+        @@all.select do |array| 
+            array.photographer  ==  input 
         end
-        @photographers
     end
     
-
-
-
 end
 
