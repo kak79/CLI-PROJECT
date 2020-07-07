@@ -1,33 +1,50 @@
 class CLI  
-
+    attr_accessor :input
 
     def welcome
         puts "Welcome to Pictures"
         puts "Please choose an option"
-        puts "To Search by Photographer ID enter 'I'"
-        puts "To Search by Photographer User Name enter 'U'"
-        puts "To View Random Photographer enter 'R'"
-        puts "To View a List of Photographers enter 'L'"
-        puts "enter 'P' for previous page in the List"
-        puts "enter 'N' for next page in the List"
-        puts "Please enter 'Q' for quit"
+        puts "To View a List of Photographer IDs Enter 'I'"
+        puts "To View a List of Photographer User Names Enter 'U'"
+        puts "To View Random Photographers Enter 'R'"
+        puts "To View a List of Photographers Enter 'L'"
+        puts "Please Enter 'Q' for Quit"
     end
 
-    def input
-        input = gets.chomp
+    def get_input
+        self.input = gets.strip
     end
 
-    def user_interface   
-    
-        while(input != "q".upcase)
+    def user_interface 
 
-            if input == "q".upcase
+        welcome
+        self.get_input
+        while(input.upcase != "Q")
+
+            if input.upcase == "Q"
                 exit!
-            
-            elsif input == "i".upcase
                 
+            elsif input.upcase == "I"
+                
+                Photographer.search_by_id 
+
+            # elsif input.upcase == "U"
+            #     Photographer.search_by_photographer
+                
+            # elsif input.upcase == "R"
+            #     Photographer.view_random
+                
+            # elsif input.upcase == "L"
+            #     Photographer.view_list
+                
+            # elsif input.upcase == "/[^ILQRU]/g"
+            #     puts "INVALID ENTRY"
+
+            else
+                welcome
+
             end
-            
+     
         end
 
 
