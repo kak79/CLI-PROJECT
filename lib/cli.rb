@@ -34,23 +34,6 @@ class CLI
         self.input = gets.strip
     end
 
-    def continue
-        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-        puts "    Type 'C' to Continue 'Q' to Quit"
-        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-        while(input.upcase != "Q")
-            self.get_input    
-            if input.upcase == "Q"
-                exit!
-            elsif input.upcase == "C"
-                menu
-            end
-            continue 
-        end
-    end
-
-    
-
     def user_interface
         
         while(input.upcase != "Q")
@@ -59,16 +42,17 @@ class CLI
                 exit!    
  
             elsif input.upcase == "P"
-                Photographer.search_photographer_array
-                continue
+                Photographer.search_pic_taker_array
+                menu
                               
             elsif input.upcase == "R"
-                Photographer.sample_photographer
-                continue
-            
+                Photographer.sample_pic_taker
+                menu
+            elsif input.upcase == "C"
+                menu
 
             else
-                continue  
+                user_interface 
 
             end
      
