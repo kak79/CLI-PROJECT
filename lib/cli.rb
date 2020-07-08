@@ -36,42 +36,35 @@ class CLI
     end
 
     def user_interface
-        
-        # self.get_input
+        binding.pry
         while(input.upcase != "Q")
-            self.get_input
+        self.get_input    
             if input.upcase == "Q"
-                exit!
-                
+                exit!    
             elsif input.upcase == "I" 
                 Photographer.id_array
-                # binding.pry
-            elsif input == "/\d{7}?[^a-z]\S[^A-Z]/"
+
+            elsif input == "/\d{1-2}?/"
+                
                 Photographer.search_id_array(input)
 
             elsif input.upcase == "P"
-                # binding.pry 
+ 
                 Photographer.photographer_array
 
-            elsif input == "/./"
+            elsif input == "/\d{1-2}?/"
                 Photographer.search_photographer_array(input)
                               
-            # elsif input.upcase == "/[^ILQP]/g"
-            #     puts "INVALID ENTRY"
+            elsif input.upcase == "/[^ILPQ0123456789\r]/g"
+                puts "INVALID ENTRY"
 
             else
-                welcome
+               menu
 
             end
      
         end
-
-
-    
-
-        
-    
-        
+   
     end
 
 end
