@@ -25,9 +25,8 @@ class Photographer
     end
 
     def self.search_id_array(input)
-        @@all.select do |array| 
-            array.id  ==  input 
-        end
+        i=input-1
+        @@all[i]
     end    
   
     def self.photographer_array
@@ -39,9 +38,8 @@ class Photographer
     end
 
     def self.search_photographer_array(input)
-        @@all.select do |array| 
-            array.photographer  ==  input 
-        end
+        j=input-1
+        @@all[j]
     end
     
 end
