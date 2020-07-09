@@ -19,13 +19,13 @@ class CLI
 
     def menu
         puts "         Please choose an option"
-        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-        puts ""        
+        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"      
         puts " To View a List of Photographer User Names"
         puts "                Enter 'P'"       
         puts "Please Enter # Beside User Name to Search By"
-        puts ""
+        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         puts "  To View a Random Photographer Enter 'R'"
+        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         puts "       Please Enter 'Q' for Quit"
         puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     end
@@ -35,7 +35,7 @@ class CLI
     end
 
     def user_interface
-        
+        # binding.pry
         while(input.upcase != "Q")
         self.get_input    
             if input.upcase == "Q"

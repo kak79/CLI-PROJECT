@@ -2,6 +2,7 @@ require 'dotenv/load'
 require 'httparty'
 require 'json'
 require 'pry'
+require 'colorize'
 
 
 require_relative '../lib/cli.rb'
