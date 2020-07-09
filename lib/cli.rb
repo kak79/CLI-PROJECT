@@ -5,10 +5,13 @@ class CLI
         @input = ""
     end
 
+    def line
+        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    end
     def start
-        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        line
         puts "           Welcome to Pictures!!"
-        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        line
         
         new_api = API.new
         new_api.get_api
@@ -19,47 +22,55 @@ class CLI
 
     def menu
         puts "         Please choose an option"
-        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"      
+        line     
         puts " To View a List of Photographer User Names"
-        puts "                Enter 'P'"       
+        puts "                Enter '1'"       
         puts "Please Enter # Beside User Name to Search By"
-        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-        puts "  To View a Random Photographer Enter 'R'"
-        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-        puts "       Please Enter 'Q' for Quit"
-        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        line
+        puts "  To View a Random Photographer Enter '2'"
+        line
+        puts "               '3' for Quit"
+        line
     end
 
     def get_input
-        self.input = gets.strip
+        self.input = gets.chomp.to_i
     end
 
     def user_interface
-        # binding.pry
-        while(input.upcase != "Q")
-        self.get_input    
-            if input.upcase == "Q"
+        #binding.pry
+        while !(input.to_i.between?(1,3))
+            self.get_input    
+            if input.to_i == 3
                 exit!    
- 
-            elsif input.upcase == "P"
+            elsif input.to_i == 1
                 Photographer.search_pic_taker_array
-                menu
-                              
-            elsif input.upcase == "R"
+                menu             
+            elsif input.to_i == 2
                 Photographer.sample_pic_taker
                 menu
-            elsif input.upcase == "C"
-                menu
-
             else
-                user_interface 
-
+                validator     
             end
-     
         end
    
     end
 
-    
+    def validator
+        line    
+        puts "      INVALID INPUT!!!   TRY AGAIN!!!"
+        line
+        menu
+        user_interface
+    end
+
+    # def numb_validator
+    #     while !(input.to_i.between?(1,20))
+    #         line    
+    #         puts "      INVALID INPUT!!!   TRY AGAIN!!!"
+    #         line
+    #     end
+    # end 
+
 end
 
