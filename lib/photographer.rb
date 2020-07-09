@@ -1,6 +1,6 @@
 class Photographer
     
-    attr_accessor :pic_taker, :pic_taker_url, :orig_url, :input
+    attr_accessor :pic_taker, :pic_taker_url, :orig_url
     
     @@all = []
 
@@ -33,21 +33,21 @@ class Photographer
         i=0
         @@all.select do |numb|
             i += 1
-            puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+            CLI.line
             puts  "#{numb.pic_taker}"
             puts  "#{numb.pic_taker_url}"
             puts  "#{numb.orig_url}"
-            puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"            
+            CLI.line           
             break if i > 0
         end
     end
 
     def display
-        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        CLI.line
         puts  "#{pic_taker}"
         puts  "#{pic_taker_url}"
         puts  "#{orig_url}"
-        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        CLI.line
     end    
 
     def self.sample_pic_taker
