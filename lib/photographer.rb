@@ -26,28 +26,30 @@ class Photographer
             break if i > 19 
         end
     end
-    
-    def self.search_pic_taker_array
-        pic_taker_array
+
+    def self.numb_var 
         numb=gets.strip.to_i - 1
+    end
+
+    def self.search_pic_taker_array
         i=0
         @@all.select do |numb|
             i += 1
-            CLI.line
+            puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
             puts  "#{numb.pic_taker}"
             puts  "#{numb.pic_taker_url}"
             puts  "#{numb.orig_url}"
-            CLI.line           
+            puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"         
             break if i > 0
         end
     end
 
     def display
-        CLI.line
+        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         puts  "#{pic_taker}"
         puts  "#{pic_taker_url}"
         puts  "#{orig_url}"
-        CLI.line
+        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     end    
 
     def self.sample_pic_taker
