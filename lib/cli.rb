@@ -8,6 +8,7 @@ class CLI
     def line
         puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     end
+
     def start
         line
         puts "           Welcome to Pictures!!"
@@ -39,21 +40,27 @@ class CLI
 
     def user_interface
         #binding.pry
-        while !(input.to_i.between?(1,3))
+        #while !(input.to_i.between?(1,3))
             self.get_input    
             if input.to_i == 3
                 exit!    
             elsif input.to_i == 1
-                Photographer.search_pic_taker_array
-                menu             
+                glue
+                menu 
+                user_interface            
             elsif input.to_i == 2
                 Photographer.sample_pic_taker
                 menu
-            else
-                validator     
+                user_interface
+            elsif
+                validator 
+            else 
+                user_interface        
             end
-        end
-   
+            
+            user_interface
+        #end
+    
     end
 
     def validator
@@ -64,13 +71,22 @@ class CLI
         user_interface
     end
 
-    # def numb_validator
-    #     while !(input.to_i.between?(1,20))
-    #         line    
-    #         puts "      INVALID INPUT!!!   TRY AGAIN!!!"
-    #         line
-    #     end
-    # end 
+    def numb_validator
+        while !(input.to_i.between?(1,20))
+            line    
+            puts "      INVALID INPUT!!!   TRY AGAIN!!!"
+            line
+        end
+    end
+
+    def glue
+        Photographer.pic_taker_array
+        Photographer.numb_var 
+        if numb_validator == true
+            user_interface
+        elsif Photographer.search_pic_taker_array
+        end
+    end
 
 end
 
