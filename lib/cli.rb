@@ -13,10 +13,8 @@ class CLI
         line
         puts "           Welcome to Pictures!!"
         line
-        
         new_api = API.new
         new_api.get_api
-
         menu
         user_interface
     end
@@ -39,28 +37,24 @@ class CLI
     end
 
     def user_interface
-        #binding.pry
-        #while !(input.to_i.between?(1,3))
-            self.get_input    
-            if input.to_i == 3
-                exit!    
-            elsif input.to_i == 1
-                glue
-                menu 
-                user_interface            
-            elsif input.to_i == 2
-                Photographer.sample_pic_taker
-                menu
-                user_interface
-            elsif
-                validator 
-            else 
-                user_interface        
-            end
-            
+        self.get_input    
+        if input.to_i == 3
+            exit!    
+        elsif input.to_i == 1
+            line
+            glue
+            menu 
+            user_interface            
+        elsif input.to_i == 2
+            Photographer.sample_pic_taker
+            menu
             user_interface
-        #end
-    
+        elsif
+            validator 
+        else 
+            user_interface        
+        end
+        user_interface
     end
 
     def validator
