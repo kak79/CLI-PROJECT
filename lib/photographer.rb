@@ -1,6 +1,6 @@
 class Photographer
     
-    attr_accessor :pic_taker, :pic_taker_url, :orig_url
+    attr_accessor :pic_taker, :pic_taker_url, :orig_url, :input
     
     @@all = []
 
@@ -27,21 +27,10 @@ class Photographer
         end
     end
 
-    def self.numb_var 
-        numb=gets.strip.to_i - 1
-    end
-
-    def self.search_pic_taker_array
-        i=0
-        @@all.select do |numb|
-            i += 1
-            puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-            puts  "#{numb.pic_taker}"
-            puts  "#{numb.pic_taker_url}"
-            puts  "#{numb.orig_url}"
-            puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"         
-            break if i > 0
-        end
+    def self.search_pic_taker_array(input2)
+        photographer=@@all[input2]
+      
+        photographer.display
     end
 
     def display

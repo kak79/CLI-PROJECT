@@ -1,5 +1,5 @@
 class CLI  
-    attr_accessor :input
+    attr_accessor :input, :input2
 
     def initialize
         @input = ""
@@ -73,14 +73,18 @@ class CLI
         end
     end
 
-    def glue
-        Photographer.pic_taker_array
-        Photographer.numb_var 
-        if numb_validator == true
-            user_interface
-        elsif Photographer.search_pic_taker_array
-        end
+    def input2_var 
+        self.input2=gets.strip.to_i - 1
     end
 
+    def glue
+        Photographer.pic_taker_array
+        input2_var 
+        if numb_validator == true
+            user_interface
+        elsif Photographer.search_pic_taker_array(input2)
+        end
+    end
+   
 end
 
