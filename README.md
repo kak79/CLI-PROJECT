@@ -5,7 +5,7 @@ Description:  The program provides either a list of photographers to choose from
 
 Installation Instructions:  Clone CLI-PROJECT repository.</br> Type the following in your terminal or command prompt window:</br>gem install dotenv</br>bundler install</br>bin/run
 
-Contributer's Guide:  Thank you to https://www.pexels.com/ for the API </br>Thank you to httparty, json, and pry from http://www.rubygems.org/
+Contributer's Guide:  Thank you to https://www.pexels.com/ for the API </br>Thank you to httparty, dotenv and pry from http://www.rubygems.org/
                       
 
 License:  https://opensource.org/licenses/MIT
