@@ -85,7 +85,7 @@ class CLI
     def glue
         Photographer.pic_taker_array
         input2_var
-        numb_validator
+        imput2_validator
         Photographer.search_pic_taker_array(input2)
     end
    
