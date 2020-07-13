@@ -20,10 +20,8 @@ class Photographer
     end
 
     def self.pic_taker_array
-        @@all.map.with_index(1) do |id,i|
-            id.pic_taker
-            puts "#{i}. #{id.pic_taker}"
-            break if i > 19 
+        @@all.each.with_index(1) do |photographer,i|
+            puts "#{i}. #{photographer.pic_taker}" 
         end
     end
 
