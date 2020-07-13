@@ -65,7 +65,7 @@ class CLI
         user_interface
     end
 
-    def numb_validator
+    def imput2_validator
         while !(input2.to_i.between?(1,20))
             line    
             puts "      INVALID INPUT!!!   TRY AGAIN!!!"
@@ -73,6 +73,7 @@ class CLI
             Photographer.pic_taker_array
             line
             puts "       Please enter valid input:"
+            line
             input2_var
         end
     end
