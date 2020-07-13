@@ -66,10 +66,14 @@ class CLI
     end
 
     def numb_validator
-        while !(input.to_i.between?(1,20))
+        while !(input2.to_i.between?(1,20))
             line    
             puts "      INVALID INPUT!!!   TRY AGAIN!!!"
             line
+            Photographer.pic_taker_array
+            line
+            puts "       Please enter valid input:"
+            input2_var
         end
     end
 
@@ -79,11 +83,9 @@ class CLI
 
     def glue
         Photographer.pic_taker_array
-        input2_var 
-        if numb_validator == true
-            user_interface
-        elsif Photographer.search_pic_taker_array(input2)
-        end
+        input2_var
+        numb_validator
+        Photographer.search_pic_taker_array(input2)
     end
    
 end
