@@ -5,9 +5,9 @@ class Photographer
     @@all = []
 
     def initialize(attr_hash)
-        @pic_taker = attr_hash[:pic_taker]
-        @pic_taker_url = attr_hash[:pic_taker_url]
-        @orig_url = attr_hash[:orig_url]
+        attr_hash.each do |key, value|
+            self.send("#{key}=", value)
+        end
         save
     end
 
@@ -27,7 +27,6 @@ class Photographer
 
     def self.search_pic_taker_array(input2)
         photographer=@@all[input2]
-      
         photographer.display
     end
 
