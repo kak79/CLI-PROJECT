@@ -43,5 +43,10 @@ class Photographer
         pic.display
     end
 
+    def hello
+        puts "hello"
+
+    end
+
 end
 
