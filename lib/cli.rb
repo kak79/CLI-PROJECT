@@ -1,5 +1,5 @@
 class CLI  
-    attr_accessor :input, :input2
+    attr_accessor :pic_taker, :pic_taker_url, :orig_url, :input, :input2
 
     def initialize
         @input = ""
@@ -67,7 +67,7 @@ class CLI
     end
 
     def imput2_validator
-        while !(input2.to_i.between?(1,20))
+        while !(input2.to_i.between?(0,19))
             line    
             puts "      INVALID INPUT!!!   TRY AGAIN!!!"
             line
@@ -86,6 +86,7 @@ class CLI
     def glue
         pic_taker_array
         input2_var
+        puts input2
         imput2_validator
         photographer=Photographer.all[input2]
         display(photographer)
