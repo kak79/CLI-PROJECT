@@ -6,7 +6,11 @@ class CLI
     end
 
     def line
-        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    end
+
+    def invalid_put
+        puts "      INVALID INPUT!!!   TRY AGAIN!!!"
     end
 
     def start
@@ -60,16 +64,16 @@ class CLI
 
     def validator
         line    
-        puts "      INVALID INPUT!!!   TRY AGAIN!!!"
+        invalid_put
         line
         menu
         user_interface
     end
 
-    def imput2_validator
+    def input2_validator
         while !(input2.to_i.between?(0,19))
             line    
-            puts "      INVALID INPUT!!!   TRY AGAIN!!!"
+            invalid_put
             line
             pic_taker_array
             line
@@ -87,7 +91,7 @@ class CLI
         pic_taker_array
         input2_var
         puts input2
-        imput2_validator
+        input2_validator
         photographer=Photographer.all[input2]
         display(photographer)
     end
@@ -99,11 +103,11 @@ class CLI
     end
 
     def display(photographer)
-        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        line
         puts  "#{photographer.pic_taker}"
         puts  "#{photographer.pic_taker_url}"
         puts  "#{photographer.orig_url}"
-        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        line
     end    
 
 end
