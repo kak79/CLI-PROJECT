@@ -46,7 +46,8 @@ class CLI
             menu 
             user_interface            
         elsif input.to_i == 2
-            Photographer.sample_pic_taker
+            pic = Photographer.sample_pic_taker
+            display(pic)
             menu
             user_interface
         elsif
@@ -70,7 +71,7 @@ class CLI
             line    
             puts "      INVALID INPUT!!!   TRY AGAIN!!!"
             line
-            Photographer.pic_taker_array
+            pic_taker_array
             line
             puts "       Please enter valid input:"
             line
@@ -83,10 +84,25 @@ class CLI
     end
 
     def glue
-        Photographer.pic_taker_array
+        pic_taker_array
         input2_var
         imput2_validator
-        Photographer.search_pic_taker_array(input2)
+        photographer=Photographer.all[input2]
+        display(photographer)
     end
    
+    def pic_taker_array
+        Photographer.all.each.with_index(1) do |photographer,i|
+            puts "#{i}. #{photographer.pic_taker}" 
+        end
+    end
+
+    def display(photographer)
+        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        puts  "#{photographer.pic_taker}"
+        puts  "#{photographer.pic_taker_url}"
+        puts  "#{photographer.orig_url}"
+        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    end    
+
 end
